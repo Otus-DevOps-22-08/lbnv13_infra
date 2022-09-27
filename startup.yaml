@@ -9,6 +9,8 @@ users:
     ssh-authorized-keys:
       - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDT/x0xo9nr95jjtE5gOYLqQpX/8gI8sBHMS9dfMT31UTkVYTLoJ5G3GLY8a1K+xXrUUzT9stB2OcrbCO+qPVtN3fugR9xCRFSGZ0R7XLhRXS/+Y9llrOOGJNccdBOBS624h57vFM1Mze5x8f75vX+1yg/SEpvoxrpH8ilYCUNklA/53VV0OC8ooRKQJ5iid/fXqsAKHg4MKYwb2sFIPl7uaUJdk6PRzP9hqJvVIbeCO8tSduJtj0OnETO0QM0TydsXFTdU5FXhnvbaMmk716u2rIroHD84etexFqOPPPdV0BoMbgJPkNwrUFX6JLqccasT2C6NbYkYQELE1EjErPR48aOvrYZh7+3fyVZHjGs19nWQ7zqsR7tPIdg+XBFKedA8zC95wbr+7whmA/R6PVwrn8DA55U4C1KZvNy/yZikOT2FWOAynqg0Ur1u9v0zaDcViPiH6QPDkURVRgm1D4QLyFLDHDlP1eSPPr+d+eDBOhloK0zRS9mVOnbX1m3by8c= appuser
 
+package_update: true
+
 write_files:
   - path: /home/yc-user/startup_script.sh
     permissions: '0777'
