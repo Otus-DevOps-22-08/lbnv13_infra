@@ -1,0 +1,5 @@
+{
+  "folder_id": "secretfolder",
+  "source_image_family": "ubuntu-1604-lts",
+  "service_account_key_file": "secretkey.json"
+}
