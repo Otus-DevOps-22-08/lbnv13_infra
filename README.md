@@ -33,3 +33,10 @@ yc compute instance create \
   --network-interface subnet-name=default-ru-central1-a,nat-ip-version=ipv4 \
   ----metadata-from-file user-data=startup.yaml \
   --metadata serial-port-enable=1
+
+## HW-05
+### Packer
+Сконфигурирован загрузочный диск, чтобы ВМ загружалась из образа
+Сконфигурирован полный загрузочный диск с работающим приложением
+Параметризованы созданные шаблоны
+Добавлен скрипт create-reddit-vm.sh для создания ВМ из готового образа с помощью Yandex.Cloud CLI
