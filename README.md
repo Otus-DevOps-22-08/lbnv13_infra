@@ -40,3 +40,10 @@ yc compute instance create \
 Сконфигурирован полный загрузочный диск с работающим приложением
 Параметризованы созданные шаблоны
 Добавлен скрипт create-reddit-vm.sh для создания ВМ из готового образа с помощью Yandex.Cloud CLI
+
+## HW-06
+### Terraform-1
+Установлен и инициализирован terraform
+Добавлен main.tf для работы с yandex cloud
+Все необходимые параметры передаются через teraform.tfvars
+Добавлен load balancer lb.tf. Настроен dynamic "target"
