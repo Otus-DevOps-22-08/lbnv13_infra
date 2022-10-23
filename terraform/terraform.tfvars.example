@@ -1,0 +1,9 @@
+cloud_id                 = "cloudid"
+folder_id                = "folderid"
+zone                     = "ru-central1-a"
+image_id                 = "imageid"
+public_key_path          = "~/.ssh/ubuntu.pub"
+subnet_id                = "subnetid"
+service_account_key_file = "secretkey.json"
+private_key_path         = "~/.ssh/ubuntu"
+count_apps               = 1
