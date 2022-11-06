@@ -1,0 +1,22 @@
+{
+    "builders": [
+        {
+            "type": "yandex",
+            "service_account_key_file": "{{user `service_account_key_file`}}",
+            "folder_id": "{{user `folder_id`}}",
+            "source_image_family": "{{user `source_image_family`}}",
+            "image_name": "mongo-db-{{timestamp}}",
+            "image_family": "mongo-db",
+            "ssh_username": "ubuntu",
+            "platform_id": "standard-v1",
+            "use_ipv4_nat": true
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "shell",
+            "script": "scripts/install_mongodb.sh",
+            "execute_command": "sudo {{.Path}}"
+        }
+    ]
+}
