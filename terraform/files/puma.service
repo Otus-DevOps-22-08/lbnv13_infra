@@ -7,7 +7,7 @@ Type=simple
 User=ubuntu
 WorkingDirectory=/home/ubuntu/reddit
 ExecStart=/bin/bash -lc 'puma'
+Environment="DATABASE_URL=mongo_db_url"
 Restart=always
-
 [Install]
 WantedBy=multi-user.target
