@@ -20,11 +20,7 @@ def getdata():
         name = '{}server'.format(group)
         ip_addr =instance['network_interfaces'][0]['primary_v4_address']['one_to_one_nat']['address']
         data['_meta']['hostvars'].update({name: {'ansible_host': ip_addr}})
-        data.update(
-                {
-                    group: {'hosts': [name]}
-                }
-            )
+        data.update({group: {'hosts': [name]}})
 
 FILE = './inventory.json'
 
