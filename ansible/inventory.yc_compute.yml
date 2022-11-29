@@ -1,0 +1,16 @@
+---
+plugin: yc_compute
+folders:
+  - b1gqt7psdrdfhasc3296
+filters:
+  - status == 'RUNNING'
+hostnames:
+  - "{{ name }}"
+auth_kind: serviceaccountfile
+service_account_file: /home/sa/secrets/key.json
+
+compose:
+  ansible_host: network_interfaces[0].primary_v4_address.one_to_one_nat.address
+
+keyed_groups:
+  - key: labels['tags']
