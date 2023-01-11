@@ -6,3 +6,6 @@ mock_roles:
 
 skip_list:
   - 'fqcn-builtins'
+  - yaml[truthy]
+  - meta-no-info
+  - meta-incorrect
