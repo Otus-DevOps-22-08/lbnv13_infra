@@ -1,6 +1,6 @@
 ---
 - name: Deploy App
-  hosts: _reddit_app
+  hosts: app
   tags: deploy-tag
   tasks:
     - name: Install git
@@ -23,6 +23,6 @@
         chdir: /home/ubuntu/reddit
 
   handlers:
-  - name: restart puma
-    become: true
-    systemd: name=puma state=restarted
+    - name: restart puma
+      become: true
+      systemd: name=puma state=restarted

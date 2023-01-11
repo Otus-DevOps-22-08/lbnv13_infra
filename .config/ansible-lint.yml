@@ -1,0 +1,11 @@
+mock_modules:
+  - bundler
+
+mock_roles:
+  - jdauphant.nginx
+
+skip_list:
+  - 'fqcn-builtins'
+  - yaml[truthy]
+  - meta-no-info
+  - meta-incorrect

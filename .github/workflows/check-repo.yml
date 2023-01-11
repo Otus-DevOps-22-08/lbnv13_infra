@@ -1,0 +1,93 @@
+name: Run repo check
+
+on:
+  push:
+    branches-ignore: main
+  pull_request:
+    branches-ignore: main
+
+jobs:
+  packer_check:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+      with:
+        ref: ${{ github.ref }}
+
+    - name: packer validate app
+      run: packer validate -var-file=packer/variables.json.example packer/app.json
+
+    - name: packer validate db
+      run: packer validate -var-file=packer/variables.json.example packer/db.json
+
+  ansible_check:
+    runs-on: ubuntu-latest
+
+    env:
+      ANSIBLE_ROLES_PATH: ansible/roles
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+      with:
+        ref: ${{ github.ref }}
+
+    - name: Run ansible-lint
+      uses: ansible/ansible-lint-action@main
+      with:
+        path: "ansible/playbooks/"  # <-- only one value is allowed
+
+  terraform_check:
+    runs-on: ubuntu-latest
+    env:
+      TF_ACTIONS_VERSION:    0.12.13
+    strategy:
+      matrix:
+        version: ['prod','stage']
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+      with:
+        ref: ${{ github.ref }}
+
+    - name: rm backend
+      run: rm -f terraform/${{ matrix.version}}/backend.tf
+
+    - name: Terraform - Init
+      uses: hashicorp/terraform-github-actions@master
+      with:
+        tf_actions_version:     ${{ env.TF_ACTIONS_VERSION }}
+        tf_actions_subcommand: 'init'
+        tf_actions_working_dir: 'terraform/${{ matrix.version }}'
+
+    - name: terraform validate prod
+      uses: hashicorp/terraform-github-actions@master
+      with:
+        tf_actions_version:     ${{ env.TF_ACTIONS_VERSION }}
+        tf_actions_subcommand: 'validate'
+        tf_actions_working_dir: 'terraform/${{ matrix.version }}'
+
+  tflint_check:
+    runs-on: ubuntu-latest
+    env:
+      TF_ACTIONS_VERSION:    0.12.13
+    strategy:
+      matrix:
+        version: ['prod','stage']
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+      with:
+        ref: ${{ github.ref }}
+
+    - uses: terraform-linters/setup-tflint@v2
+      name: Setup TFLint
+      with:
+        tflint_version: v0.38.1
+
+    - name: Run TFLint
+      run: tflint -f compact terraform/${{ matrix.version}}
