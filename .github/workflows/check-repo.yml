@@ -54,7 +54,7 @@ jobs:
         ref: ${{ github.ref }}
 
     - name: rm backend
-        run: rm -f terraform/${{ matrix.version}}/backend.tf
+      run: rm -f terraform/${{ matrix.version}}/backend.tf
 
     - name: Terraform - Init
       uses: hashicorp/terraform-github-actions@master
