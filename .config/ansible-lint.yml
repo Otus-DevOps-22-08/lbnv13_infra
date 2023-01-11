@@ -3,3 +3,6 @@ mock_modules:
 
 mock_roles:
   - jdauphant.nginx
+
+skip_list:
+  - 'fqcn-builtins'
