@@ -6,6 +6,9 @@ on:
   pull_request:
     branches-ignore: main
 
+env:
+  ANSIBLE_ROLES_PATH: ansible/roles
+
 jobs:
   check_repo:
     runs-on: ubuntu-latest
