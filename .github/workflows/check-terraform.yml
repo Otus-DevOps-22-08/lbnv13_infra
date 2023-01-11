@@ -7,7 +7,7 @@ on:
     branches-ignore: main
 
 jobs:
-  check_repo:
+  ansible_v2:
     runs-on: ubuntu-latest
 
     steps:
@@ -15,3 +15,18 @@ jobs:
       uses: actions/checkout@v2
       with:
         ref: ${{ github.ref }}
+
+    - name: Run ansible-lint v2 test
+      run: sudo apt install ansible-lint && ansible-lint ansible/playbooks/*
+
+  terraform:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+      with:
+        ref: ${{ github.ref }}
+
+    - name: terraform validate
+      run: cd terraform/prod && terraform init && terraform validate
