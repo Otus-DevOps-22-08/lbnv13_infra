@@ -1,4 +1,4 @@
-name: Run Packer validate
+name: Run terraform validate
 
 on:
   push:
