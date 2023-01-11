@@ -18,6 +18,5 @@ jobs:
 
     - name: Run ansible-lint
       uses: ansible/ansible-lint-action@main
-      optional:
       with:
         path: "ansible/playbooks/"  # <-- only one value is allowed
