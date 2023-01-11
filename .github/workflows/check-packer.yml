@@ -1,4 +1,4 @@
-name: Run tests for repo (HW-10 Ansible-3)
+name: Run Packer validate
 
 on:
   push:
