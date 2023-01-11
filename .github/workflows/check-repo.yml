@@ -1,0 +1,23 @@
+name: Run tests for repo (HW-10 Ansible-3)
+
+on:
+  push:
+    branches-ignore: main
+  pull_request:
+    branches-ignore: main
+
+jobs:
+  check_repo:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+      with:
+        ref: ${{ github.ref }}
+
+    - name: packer validate app
+      run: packer validate -var-file=packer/variables.json.example packer/app.json
+
+    - name: packer validate db
+      run: packer validate -var-file=packer/variables.json.example packer/db.json
