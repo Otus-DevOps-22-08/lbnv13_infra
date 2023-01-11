@@ -78,9 +78,9 @@ yc compute instance create \
 Созданы окружения stage и prod., настроено окружение по умолчанию.
 Созданы файлы с данными пользователей для каждого окружения.
 Файлы зашифрованы с помощью Ansible Vault. vault.key сохранен out-of-tree.
-Задание с *
+### Задание с *
 Перенесено из предыдущего ДЗ в каждое из окружений
-Задание с **
+### Задание с **
 Otus tests [![Run tests for OTUS homework](https://github.com/Otus-DevOps-22-08/lbnv13_infra/actions/workflows/run-tests.yml/badge.svg?branch=ansible-3)](https://github.com/Otus-DevOps-22-08/lbnv13_infra/actions/workflows/run-tests.yml)
 packer validate для всех шаблонов
 terraform validate и tflint для окружений stage и prod
