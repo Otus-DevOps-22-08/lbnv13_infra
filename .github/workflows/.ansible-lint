@@ -1,0 +1,4 @@
+mock_modules:
+  - bundler
+mock_roles:
+  - jdauphant.nginx
