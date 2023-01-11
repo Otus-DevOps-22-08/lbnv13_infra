@@ -1,6 +1,6 @@
 ---
 - name: Deploy App
-  hosts: _reddit_app
+  hosts: app
   tags: deploy-tag
   tasks:
     - name: Install git
