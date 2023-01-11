@@ -1,0 +1,52 @@
+name: Run repo check
+
+on:
+  push:
+    branches-ignore: main
+  pull_request:
+    branches-ignore: main
+
+jobs:
+  packer_check:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+      with:
+        ref: ${{ github.ref }}
+
+    - name: packer validate app
+      run: packer validate -var-file=packer/variables.json.example packer/app.json
+
+    - name: packer validate db
+      run: packer validate -var-file=packer/variables.json.example packer/db.json
+
+  ansible_check:
+    runs-on: ubuntu-latest
+
+    env:
+      ANSIBLE_ROLES_PATH: ansible/roles
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+      with:
+        ref: ${{ github.ref }}
+
+    - name: Run ansible-lint
+      uses: ansible/ansible-lint-action@main
+      with:
+        path: "ansible/playbooks/"  # <-- only one value is allowed
+
+  terraform_check:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+      with:
+        ref: ${{ github.ref }}
+
+    - name: terraform validate
+      run: cd terraform/prod && terraform init && terraform validate
