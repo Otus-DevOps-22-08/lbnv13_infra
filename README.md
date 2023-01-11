@@ -70,3 +70,19 @@ yc compute instance create \
 Изменен провижн образов Packer на Ansible-плейбуки. Собраны новые образы.
 Использован плагин инвентаризации Yandex cloud.
 Использован функционал keyed_groups.
+
+## HW-10
+### Ansible-3
+### Основное задание
+Созданы роли app и db.
+Созданы окружения stage и prod., настроено окружение по умолчанию.
+Созданы файлы с данными пользователей для каждого окружения.
+Файлы зашифрованы с помощью Ansible Vault. vault.key сохранен out-of-tree.
+Задание с *
+Перенесено из предыдущего ДЗ в каждое из окружений
+Задание с **
+Otus tests [![Run tests for OTUS homework](https://github.com/Otus-DevOps-22-08/lbnv13_infra/actions/workflows/run-tests.yml/badge.svg?branch=ansible-3)](https://github.com/Otus-DevOps-22-08/lbnv13_infra/actions/workflows/run-tests.yml)
+packer validate для всех шаблонов
+terraform validate и tflint для окружений stage и prod
+ansible-lint для плейбуков Ansible
+[![Run repo check](https://github.com/Otus-DevOps-22-08/lbnv13_infra/actions/workflows/check-repo.yml/badge.svg)](https://github.com/Otus-DevOps-22-08/lbnv13_infra/actions/workflows/check-repo.yml)
