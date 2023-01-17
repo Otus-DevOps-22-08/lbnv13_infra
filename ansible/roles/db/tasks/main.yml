@@ -4,5 +4,10 @@
   debug:
     msg: "This host is in {{ env }} environment!!!"
 
-- include: install_mongo.yml
-- include: config_mongo.yml
+- name: Include install_mongo
+  ansible.builtin.include_tasks:
+    file: install_mongo.yml
+
+- name: Include iconfig_mongo
+  ansible.builtin.include_tasks:
+    file: config_mongo.yml
