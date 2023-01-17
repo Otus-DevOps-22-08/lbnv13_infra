@@ -5,9 +5,7 @@
     msg: "This host is in {{ env }} environment!!!"
 
 - name: Include ruby
-  ansible.builtin.include_tasks:
-    file: ruby.yml
+  import_tasks: ruby.yml
 
 - name: Include puma
-  ansible.builtin.include_tasks:
-    file: puma.yml
+  import_tasks: puma.yml

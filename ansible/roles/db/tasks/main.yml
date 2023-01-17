@@ -5,9 +5,7 @@
     msg: "This host is in {{ env }} environment!!!"
 
 - name: Include install_mongo
-  ansible.builtin.include_tasks:
-    file: install_mongo.yml
+  import_tasks: install_mongo.yml
 
 - name: Include iconfig_mongo
-  ansible.builtin.include_tasks:
-    file: config_mongo.yml
+  import_tasks: config_mongo.yml
