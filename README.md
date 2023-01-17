@@ -86,3 +86,14 @@ packer validate для всех шаблонов
 terraform validate и tflint для окружений stage и prod
 ansible-lint для плейбуков Ansible
 [![Run repo check](https://github.com/Otus-DevOps-22-08/lbnv13_infra/actions/workflows/check-repo.yml/badge.svg)](https://github.com/Otus-DevOps-22-08/lbnv13_infra/actions/workflows/check-repo.yml)
+
+## HW-11
+### Ansible-4
+### Основное задание
+Установлены и настроены vagrant и virtualbox
+Переделаны роли app и db
+Проведены тесты роли db в molecula
+### Задание с *
+Добавлен тест проверки порта 27017
+Роли перенесены в плейбуки для пакера
+Роль db вынесена в отдельную репу, откуда ставится с помощью ansible-galaxy. БЫла убрана из репозитория, но пришлось вернуть для прохождения тестов ansible из прошлого дз

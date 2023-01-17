@@ -6,3 +6,5 @@ packer/variables.json
 .terraform/
 *.retry
 jdauphant.nginx
+*.log
+venv/
