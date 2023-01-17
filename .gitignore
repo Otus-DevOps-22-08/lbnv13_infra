@@ -8,4 +8,3 @@ packer/variables.json
 jdauphant.nginx
 *.log
 venv/
-db/
